@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yaschat-users-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yaschat-users-service
+  template:
+    metadata:
+      labels:
+        app: yaschat-users-service
+    spec:
+      containers:
+        - name: yaschat-users-service
+          image: raniayasmine/users-service:latest  # Remplacer par ton image Docker
+          ports:
+            - containerPort: 8081

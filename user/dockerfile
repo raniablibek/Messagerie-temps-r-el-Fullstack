@@ -1,0 +1,5 @@
+FROM openjdk:17-slim
+COPY target/users-service-1.0.jar /app/app.jar
+WORKDIR /app
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]

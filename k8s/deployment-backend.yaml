@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yaschat-backend  # Nom du déploiement
+spec:
+  replicas: 2  # Nombre de réplicas de ton application (2 pour la haute disponibilité)
+  selector:
+    matchLabels:
+      app: yaschat-backend  # Label pour sélectionner les pods
+  template:
+    metadata:
+      labels:
+        app: yaschat-backend  # Label pour les pods
+    spec:
+      containers:
+        - name: backend
+          image: raniayasmine/yaschat-backend:latest  # Image Docker de ton backend
+          ports:
+            - containerPort: 8080  # Le port où ton backend écoute

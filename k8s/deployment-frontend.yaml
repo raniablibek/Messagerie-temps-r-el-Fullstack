@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yaschat-frontend  # Nom du déploiement
+spec:
+  replicas: 2  # Nombre de réplicas de ton application
+  selector:
+    matchLabels:
+      app: yaschat-frontend  # Label pour sélectionner les pods
+  template:
+    metadata:
+      labels:
+        app: yaschat-frontend  # Label pour les pods
+    spec:
+      containers:
+        - name: frontend
+          image: raniayasmine/yaschat-frontend:latest  # Image Docker du frontend
+          ports:
+            - containerPort: 3000  # Le port où ton frontend écoute
